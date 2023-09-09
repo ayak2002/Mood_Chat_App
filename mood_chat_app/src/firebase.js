@@ -1,9 +1,8 @@
-// Got help from the Firebase Documentation: https://firebase.google.com/docs/web/setup
-
 import firebase from 'firebase/compat/app';
 import { getAnalytics } from "firebase/analytics";
 import 'firebase/compat/auth';
 
+// Got the Firebase project configurations from our Firebase Project Settings page
 const firebaseConfig = {
   apiKey: "AIzaSyCimpJrYBsY8wBAxhp0yZNg5DdH-JkqtgI",
   authDomain: "mood-chat-app.firebaseapp.com",
