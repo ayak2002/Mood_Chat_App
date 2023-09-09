@@ -1,0 +1,21 @@
+[debug] [2023-09-09T19:07:16.728Z] ----------------------------------------------------------------------
+[debug] [2023-09-09T19:07:16.731Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\16177\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js init
+[debug] [2023-09-09T19:07:16.732Z] CLI Version:   12.5.3
+[debug] [2023-09-09T19:07:16.732Z] Platform:      win32
+[debug] [2023-09-09T19:07:16.732Z] Node Version:  v18.17.1
+[debug] [2023-09-09T19:07:16.743Z] Time:          Sat Sep 09 2023 15:07:16 GMT-0400 (Eastern Daylight Time)
+[debug] [2023-09-09T19:07:16.743Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2023-09-09T19:07:16.771Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2023-09-09T19:07:16.773Z] > authorizing via signed-in user (ayak@bu.edu)
+[info] 
+     ######## #### ########  ######## ########     ###     ######  ########
+     ##        ##  ##     ## ##       ##     ##  ##   ##  ##       ##
+     ######    ##  ########  ######   ########  #########  ######  ######
+     ##        ##  ##    ##  ##       ##     ## ##     ##       ## ##
+     ##       #### ##     ## ######## ########  ##     ##  ######  ########
+
+You're about to initialize a Firebase project in this directory:
+
+  C:\Users\16177\Dropbox\PC\Documents\GitHub\Mood_Chat_App\mood_chat_app
+
