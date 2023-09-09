@@ -2,7 +2,7 @@
 import React, { useState, useEffect } from 'react';
 import { auth } from './firebase';
 import { GoogleAuthProvider } from 'firebase/auth';
-
+import ChatBox from "./component/ChatBox";
 
 const App = () => {
   const [user, setUser] = useState(null);
@@ -46,6 +46,8 @@ const App = () => {
           Sign In with Google
         </button>
       )}
+
+      <ChatBox />
     </div>
   );
 };

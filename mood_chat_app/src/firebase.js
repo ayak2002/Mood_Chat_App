@@ -1,6 +1,7 @@
 import firebase from 'firebase/compat/app';
 import { getAnalytics } from "firebase/analytics";
 import 'firebase/compat/auth';
+import { getFirestore } from "firebase/firestore";
 
 // Got the Firebase project configurations from our Firebase Project Settings page
 const firebaseConfig = {
@@ -18,3 +19,4 @@ const analytics = getAnalytics(firebaseApp);
 
 export const auth = firebaseApp.auth();
 export default firebaseApp;
+export const db = getFirestore(firebaseApp);
