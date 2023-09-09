@@ -26,11 +26,14 @@ const App = () => {
   const handleSignOut = async () => {
     try {
       await auth.signOut();
+      // Set user to null after signing out
       setUser(null);
     } catch (error) {
       console.error('Error signing out:', error);
     }
   };
+
+  
 
   return (
     <div>
@@ -39,17 +42,19 @@ const App = () => {
         <div>
           <p>Welcome, {user.displayName}!</p>
           <button onClick={handleSignOut}>Sign Out</button>
-          {/* Add your search and messaging components here */}
+          <ChatBox /> {/* Render ChatBox when user is signed in */}
         </div>
       ) : (
-        <button onClick={() => auth.signInWithPopup(new GoogleAuthProvider())}>
-          Sign In with Google
-        </button>
+        <div>
+          <p>Please sign in to chat</p>
+          <button onClick={() => auth.signInWithPopup(new GoogleAuthProvider())}>
+            Sign In with Google
+          </button>
+        </div>
       )}
-
-      <ChatBox />
     </div>
   );
 };
+
 
 export default App;
