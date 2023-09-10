@@ -11,10 +11,11 @@ const SendMessage = ({ scroll }) => {
       alert("Enter valid message");
       return;
     }
-    const { uid, displayName, photoURL } = auth.currentUser;
+    const { uid, displayName, photoURL, email } = auth.currentUser;
     await addDoc(collection(db, "messages"), {
       text: message,
       name: displayName,
+      email: email,
       avatar: photoURL,
       createdAt: serverTimestamp(),
       uid,
