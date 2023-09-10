@@ -1,60 +1,74 @@
-//Initial structure of the code generated with ChatGPT, then fixed and debugged 
 import React, { useState, useEffect } from 'react';
 import { auth } from './firebase';
 import { GoogleAuthProvider } from 'firebase/auth';
-import ChatBox from "./component/ChatBox";
+import MessageUsers from './component/MessageUsers';
+import AddUser from './component/AddUser';
 
 const App = () => {
   const [user, setUser] = useState(null);
+  const [conversationStarted, setConversationStarted] = useState(false);
 
   useEffect(() => {
-    // Listen for changes in user authentication state
-    const unsubscribe = auth.onAuthStateChanged((user) => {
-      if (user) {
-        // User is signed in.
-        setUser(user);
+    const unsubscribe = auth.onAuthStateChanged((authUser) => {
+      if (authUser) {
+        setUser(authUser);
+
+        // Call the AddUser function to add the user to Firestore
+        AddUser(authUser); // Pass the entire user object
+
       } else {
-        // User is signed out.
         setUser(null);
       }
     });
 
-    // Cleanup the listener when the component unmounts
     return () => unsubscribe();
   }, []);
+
+  const handleSignIn = async () => {
+    try {
+      const result = await auth.signInWithPopup(new GoogleAuthProvider());
+      const authUser = result.user;
+
+      // Call the AddUser function to add the user to Firestore
+      AddUser(authUser); // Pass the entire user object
+
+      // The rest of your sign-in logic here
+
+      // Set conversationStarted to true when initiating a conversation
+      setConversationStarted(true);
+    } catch (error) {
+      console.error('Error signing in with Google:', error);
+    }
+  };
 
   const handleSignOut = async () => {
     try {
       await auth.signOut();
-      // Set user to null after signing out
       setUser(null);
     } catch (error) {
       console.error('Error signing out:', error);
     }
   };
 
-  
-
   return (
     <div>
       <h1>Mood Chat App</h1>
-      {user ? (
-        <div>
-          <p>Welcome, {user.displayName}!</p>
-          <button onClick={handleSignOut}>Sign Out</button>
-          <ChatBox /> {/* Render ChatBox when user is signed in */}
-        </div>
-      ) : (
-        <div>
-          <p>Please sign in to chat</p>
-          <button onClick={() => auth.signInWithPopup(new GoogleAuthProvider())}>
-            Sign In with Google
-          </button>
-        </div>
-      )}
+      <div>
+        {user ? (
+          <div>
+            <p>Welcome, {user.displayName}!</p>
+            <button onClick={handleSignOut}>Sign Out</button> {/* Sign-out button */}
+          </div>
+        ) : (
+          <div>
+            <p>Please sign in to use the chat</p>
+            <button onClick={handleSignIn}>Sign In with Google</button>
+          </div>
+        )}
+      </div>
+      {user && <MessageUsers />} {/* Render MessageUsers only if conversationStarted is true and user is signed in*/}
     </div>
   );
 };
-
 
 export default App;
