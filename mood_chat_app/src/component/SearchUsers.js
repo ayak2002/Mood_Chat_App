@@ -4,81 +4,75 @@ import {
   collection,
   query,
   where,
-  getDocs
+  getDocs,
 } from 'firebase/firestore';
 
 const SearchUsers = ({ onStartConversation, setSelectedUser }) => {
   const [searchQuery, setSearchQuery] = useState('');
   const [searchResults, setSearchResults] = useState([]);
 
+  // Function to perform a case-insensitive search
+  const caseInsensitiveSearch = (str, query) => {
+    return str.toLowerCase().includes(query.toLowerCase());
+  };
+
   const handleSearch = async () => {
     if (searchQuery.trim() === '') {
       setSearchResults([]);
       return;
     }
-  
+
     try {
       const usersRef = collection(db, 'users');
-      const normalizedQuery = searchQuery.toLowerCase();
-      const keywords = normalizedQuery.split(' ');
-  
-      // Create an array to store the queries for each keyword
-      const queries = [];
-  
-      // Loop through the keywords and add a query for each
-      keywords.forEach((keyword) => {
-        queries.push(
-          query(
-            usersRef,
-            where('name', '>=', keyword),
-            where('name', '<=', keyword + '\uf8ff')
-          ),
-          query(
-            usersRef,
-            where('email', '>=', keyword),
-            where('email', '<=', keyword + '\uf8ff')
-          )
-        );
-  
-        // Add a query for searching the last name directly
-        if (!keyword.includes(' ')) {
-          queries.push(
-            query(
-              usersRef,
-              where('name', '>=', keyword),
-              where('name', '<=', keyword + '\uf8ff')
-            )
-          );
+      const normalizedQuery = searchQuery.trim();
+
+      const nameQuerySnapshot = await getDocs(
+        query(usersRef, (userQuery) => {
+          return where('name', '>=', normalizedQuery)
+            .where('name', '<=', normalizedQuery + '\uf8ff');
+        })
+      );
+
+      const emailQuerySnapshot = await getDocs(
+        query(usersRef, (userQuery) => {
+          return where('email', '>=', normalizedQuery)
+            .where('email', '<=', normalizedQuery + '\uf8ff');
+        })
+      );
+
+      const nameResults = [];
+      nameQuerySnapshot.forEach((doc) => {
+        const user = doc.data();
+        if (caseInsensitiveSearch(user.name, normalizedQuery)) {
+          nameResults.push({ ...user, uid: doc.id });
         }
       });
-  
-      // Execute the queries concurrently
-      const queryResults = await Promise.all(queries.map((q) => getDocs(q)));
-  
-      // Use a Set to track unique user IDs
-      const uniqueUserIds = new Set();
-  
-      // Merge and deduplicate the results
-      const results = [];
-      queryResults.forEach((querySnapshot) => {
-        querySnapshot.forEach((doc) => {
-          const userId = doc.id;
-          if (!uniqueUserIds.has(userId)) {
-            // Add the user to the results if it hasn't been added yet
-            uniqueUserIds.add(userId);
-            results.push({ ...doc.data(), uid: userId });
-          }
-        });
+
+      const emailResults = [];
+      emailQuerySnapshot.forEach((doc) => {
+        const user = doc.data();
+        if (caseInsensitiveSearch(user.email, normalizedQuery)) {
+          emailResults.push({ ...user, uid: doc.id });
+        }
       });
-  
+
+      // Merge and deduplicate the results
+      const mergedResults = [...nameResults, ...emailResults];
+      const uniqueUserIds = new Set();
+      const results = mergedResults.filter((user) => {
+        if (uniqueUserIds.has(user.uid)) {
+          return false; // Skip duplicates
+        }
+        uniqueUserIds.add(user.uid);
+        return true;
+      });
+
       setSearchResults(results);
     } catch (error) {
       console.error('Error searching for users:', error);
     }
   };
-  
-  
-  
+
   const handleMessageClick = (user) => {
     // Set the selected user in the parent component
     setSelectedUser(user);
