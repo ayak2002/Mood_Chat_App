@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { auth, db } from "../firebase";
 import { addDoc, collection, serverTimestamp } from "firebase/firestore";
+import { createDMRef, names} from "./MessageUsers";
 
 const SendMessage = ({ scroll }) => {
   const [message, setMessage] = useState("");
@@ -12,7 +13,9 @@ const SendMessage = ({ scroll }) => {
       return;
     }
     const { uid, displayName, photoURL, email } = auth.currentUser;
-    await addDoc(collection(db, "messages"), {
+    const [firstName, secondName] = names;
+    const DMRef = createDMRef(db, firstName, secondName);
+    await addDoc(DMRef, {
       text: message,
       name: displayName,
       email: email,

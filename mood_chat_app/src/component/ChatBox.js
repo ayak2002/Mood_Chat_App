@@ -9,14 +9,17 @@ import {
 import { db } from "../firebase";
 import Message from "./Message";
 import SendMessage from "./SendMess";
+import { createDMRef, names} from "./MessageUsers";
 
 const ChatBox = () => {
   const [messages, setMessages] = useState([]);
   const scroll = useRef();
+  const [firstName, secondName] = names;
+  const DMRef = createDMRef(db, firstName, secondName);
 
   useEffect(() => {
     const q = query(
-      collection(db, "messages"),
+      DMRef,
       orderBy("createdAt", "desc"),
       limit(50)
     );
@@ -32,7 +35,7 @@ const ChatBox = () => {
       setMessages(sortedMessages);
     });
     return () => unsubscribe;
-  }, []);
+  }, [DMRef]);
 
   return (
     <main className="chat-box">
