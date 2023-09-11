@@ -14,6 +14,7 @@ import { createDMRef, names} from "./MessageUsers";
 const ChatBox = () => {
   const [messages, setMessages] = useState([]);
   const scroll = useRef();
+  
   const [firstName, secondName] = names;
   const DMRef = createDMRef(db, firstName, secondName);
 

@@ -62,10 +62,16 @@ const MessageUsers = () => {
     setSelectedUser(user);
     };
 
+    const handleButtonClick = () => {
+      names=["Chat1", "All"];
+      newChat(names,db);
+    };
+
   
   
   return (
     <div>
+      <button onClick={handleButtonClick}>Chatroom 1</button>
       {/* Render the SearchUsers component and pass the 'handleStartConversation' function as a prop */}
       <SearchUsers onStartConversation={handleStartConversation} setSelectedUser={setSelectedUser} />
       {/* Render the ChatBox component */}
