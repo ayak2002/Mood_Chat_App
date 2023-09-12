@@ -4,7 +4,7 @@ import ChatBox from './ChatBox';
 import { auth, db } from "../firebase";
 import { addDoc, collection, serverTimestamp, getDocs } from "firebase/firestore";
 import { useAuthState } from "react-firebase-hooks/auth";
-
+import ChatRoom from "../img/icons8-group-24.png";
 let names = [];
 
 
@@ -73,9 +73,12 @@ const MessageUsers = () => {
   
   return (
     <div>
-      <button onClick={handleChat1Click}>Chatroom 1</button>
       {/* Render the SearchUsers component and pass the 'handleStartConversation' function as a prop */}
       <SearchUsers onStartConversation={handleStartConversation} setSelectedUser={setSelectedUser} />
+      <button onClick={handleChat1Click} id="chat1">
+      <img src={ChatRoom} alt='Chatroom1' />
+      </button>
+      
       {/* Render the ChatBox component */}
       <ChatBox selectedUser={selectedUser}/>
     </div>

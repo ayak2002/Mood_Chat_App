@@ -6,6 +6,8 @@ import {
   where,
   getDocs,
 } from 'firebase/firestore';
+import searchicon from "../img/icons8-search-50.png";
+
 
 const SearchUsers = ({ onStartConversation, setSelectedUser }) => {
   const [searchQuery, setSearchQuery] = useState('');
@@ -82,14 +84,15 @@ const SearchUsers = ({ onStartConversation, setSelectedUser }) => {
   };
 
   return (
-    <div>
+    <div id="search-bar">
       <input
         type="text"
         placeholder="Search by name or email"
         value={searchQuery}
         onChange={(e) => setSearchQuery(e.target.value)}
+        id="search-in"
       />
-      <button onClick={handleSearch}>Search</button>
+      <button onClick={handleSearch} id="search-button"><img src={searchicon} alt='search' /></button>
 
       <div>
         {searchResults.length > 0 ? (

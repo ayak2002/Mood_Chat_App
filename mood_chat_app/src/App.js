@@ -3,6 +3,7 @@ import { auth } from './firebase';
 import { GoogleAuthProvider } from 'firebase/auth';
 import MessageUsers from './component/MessageUsers';
 import AddUser from './component/AddUser';
+import GoogleSignin from "./img/btn_google_signin_dark_pressed_web.png";
 
 const App = () => {
   const [user, setUser] = useState(null);
@@ -53,19 +54,23 @@ const App = () => {
   return (
     <div>
       <h1>Mood Chat App</h1>
-      <div>
+      <div id="user-in">
         {user ? (
           <div>
-            <p>Welcome, {user.displayName}!</p>
-            <button onClick={handleSignOut}>Sign Out</button> {/* Sign-out button */}
+            <p id="user-name">{user.displayName}
+            <button onClick={handleSignOut} id="sign-out">Sign Out</button> {/* Sign-out button */}
+            </p>
           </div>
         ) : (
-          <div>
+          <div id="await-user">
             <p>Please sign in to use the chat</p>
-            <button onClick={handleSignIn}>Sign In with Google</button>
+            <button onClick={handleSignIn} id="await-but">
+            <img src={GoogleSignin} alt='Signin' />
+            </button>
           </div>
         )}
       </div>
+      
       {user && <MessageUsers />} {/* Render MessageUsers only if conversationStarted is true and user is signed in*/}
     </div>
   );
