@@ -2,6 +2,8 @@ import firebase from 'firebase/compat/app';
 import 'firebase/compat/auth';
 import { getFirestore } from "firebase/firestore";
 
+
+
 // Got the Firebase project configurations from our Firebase Project Settings page
 const firebaseConfig = {
   apiKey: "AIzaSyCimpJrYBsY8wBAxhp0yZNg5DdH-JkqtgI",

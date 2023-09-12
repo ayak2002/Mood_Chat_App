@@ -1,0 +1,13 @@
+{
+  "type": "service_account",
+  "project_id": "mood-chat-398712",
+  "private_key_id": "15589efbbd2c4051ae301546254e9d958617088b",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQCezUOIiCbemfBu\nuvo5t6eyIVr+QxOGJN9U9e02M3I7bsmZP8XCzjFoifgkmmhtHRTdFRzrXWLmWGT2\nLWbMETS7fjpaBDkUcqEE5MBttajq1XLK7yVQ1aIuW4B4QbuDwHMUgqEMMcUZVJnU\n3g0L8SlSiiCmU8bGMrFBupKoUcfpzu+IOv4gdfWkp/icmsT97qQs29gmH254lY2+\nDPh07xBj8fJks2I7ZziP9mk8xLkVIy9kWDoqLQp8mvbYSQ7LFQYoab6egFuopE3O\nQelzGJCPmFQ0h750SreUdC/RAkJdwCB/Gl5pdv5Il37Zt5XLIOB3P+2h4Cn+Z23a\nh7VwuUu1AgMBAAECggEABV4xlDdAqRxRsPcyZ3+6dB5bMbvEDdrH5IVTpBYPxyEy\n610+gBvxi55uUZPD8pGdwkNpG4On84VgFE+V6VFY6PrsBLLz2FRvoPdikdLRh5lO\nLLycvvjEZ1tsd6QxLyjy5ZSXgQ6wTO+RK6LolKjC7tQAeomGb0NeE+IMpxKXTA3x\nsuSYJvBk9fB8mukCd5JkQezHuuCzjf+f/+G2SR76AVY+yZl/9BtajYjXQUURUmE3\nX6NKT6LenmrXXiqwVNJaFIkWkv70pGtjA1nvOvy+Ontt4bGDpBsDJqlzBOcVXqGH\nD0ofpgPC8EJ5o643cH6F+hoI79A18juPOiUKsb7umQKBgQDXfEKkK7DiwmixunYh\n1dljr63fuH76g7FK8Q7O8BPtLZdZZt7auWk2yQkm9xs2bAvPMtljPmswZnsgRhre\n2vL03qWZWltkVByw0p7Ty+V+bKD53dr8G6G6fF0Pt2Nud8SDhnFUhyupTmf673FZ\n6EW6WIBN8feQCLqmwUmNnwZcPwKBgQC8qLXSutm7VEBemp5ahNDIu+xfi7L4JsDm\nfPuZvswjj7Cit2ItpiBd94gEAxA2OY3QG+zHoyCUhpYeGcMfbmXVonT5usLwAbWr\nxCL6lUCkrUpb05/kv+THlvsev+90th14DWatRG7QUGH8xWOv+oLij9cT4RSyBYZl\n1S+6t9trCwKBgHX4Umecf8d1FWoPofLeJ5h6ql8rm2C8zkgv9qJ2LwKPDifkuKbY\nEPDsWLVbXSuLNV/m/7pkhrxFrqy5lKZjCdXjOpfdLuGbZuWrOUbMfsSa5fpFakjR\nO9ZjlXMwPCBTM2OqK8tSASY8hZKMmerVza66GuwRRy40iTMX6JO+9vVzAoGAHPBw\nO6wH3DF3Uku7gL0g3bnd72YZhPFE49ZGLfZTkBzphnxE5iW2j1N6HMtvgDHh7Ats\njc8bH01p16IyCS9BFb0+3lPktTY97ORATVn5uYkPf/h9bXR2HputV7EvhSKucIz1\ntBxsNy4tab3JpePykdhosJb1Or2YOSSzlpu/X7MCgYEAq9jpR6rgiTN/PD5S3Y8l\nTtSDEDhg0gMgq4wVpRjcO6nGNnfi4NVuzB8SSSKnivZjXySh527XeZZ5WUKW7GQY\ntQkYJAUA8ARguO7tGJiZI1NZi9qgLTdDPYFpAHbfIX3eVtBKPkEqSDxca3rb+vrA\nhZLmCifkzmBfNgiketV20ds=\n-----END PRIVATE KEY-----\n",
+  "client_email": "mood-chat@mood-chat-398712.iam.gserviceaccount.com",
+  "client_id": "102479862215321559268",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/mood-chat%40mood-chat-398712.iam.gserviceaccount.com",
+  "universe_domain": "googleapis.com"
+}
