@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import { auth, db } from "../firebase";
 import { addDoc, collection, serverTimestamp } from "firebase/firestore";
 import { createDMRef, names } from "./MessageUsers";
+import sendicon from "../img/icons8-send-mail-25.png"
+
 
 const SendMessage = ({ scroll }) => {
   const [message, setMessage] = useState("");
@@ -64,7 +66,7 @@ const SendMessage = ({ scroll }) => {
         value={message}
         onChange={(e) => setMessage(e.target.value)}
       />
-      <button type="submit">Send</button>
+      <button type="submit"><img src={sendicon} alt='Send' /></button>
     </form>
   );
 };

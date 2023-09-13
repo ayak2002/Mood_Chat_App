@@ -7,6 +7,7 @@ import {
   getDocs,
 } from 'firebase/firestore';
 import searchicon from "../img/icons8-search-50.png";
+import dmicon from "../img/icons8-paper-plane-64.png"
 
 
 const SearchUsers = ({ onStartConversation, setSelectedUser }) => {
@@ -100,7 +101,7 @@ const SearchUsers = ({ onStartConversation, setSelectedUser }) => {
             {searchResults.map((user) => (
               <li key={user.uid}>
                 {user.name} ({user.email})
-                <button onClick={() => handleMessageClick(user)}>Message</button>
+                <button onClick={() => handleMessageClick(user)} id="message-but"><img src={dmicon} alt='Message' /></button>
               </li>
             ))}
           </ul>

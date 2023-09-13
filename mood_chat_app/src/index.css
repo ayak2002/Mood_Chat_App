@@ -142,7 +142,7 @@ h1{
   
   margin-top: -.8%;
   margin-left: 77vw;
-  width: 22vw;
+  width: 21vw;
 }
 #search-button{
   background-color: #efeeee;
@@ -225,4 +225,18 @@ h1{
   font-weight: 700;
   height: 4vh;
   border-radius: 16px;
+}
+
+#message-but{
+  background-color: #efeeee;
+  height: 4vh;
+  border-radius: 28px;
+  width: 2.2vw;
+}
+
+#message-but>img{
+  height: 2vh;
+  width: auto;
+  position: relative;
+  margin-top: 22%;
 }
