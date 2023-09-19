@@ -1,6 +1,12 @@
 # Mood_Chat_App
 The Mood Chat App is a real-time chat application designed to facilitate communication between users. It leverages Firebase for user authentication and Firestore for storing chat data. In this documentation report, we'll explore the project's various components, their implementation techniques, and the design decisions made to ensure an efficient and user-friendly experience.
 
+### To run the app ###
+
+1. Navigate to the `node_server` repository, and run `node server.js`.
+2. Navigate to the `mood_chat_app` repository, and run `npm start`
+3. In your browser, enter 'http://localhost:3000/'
+   
 ### **AddUser.js**
 
 #### **Implementation Techniques:**
