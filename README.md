@@ -171,6 +171,8 @@ The Mood Chat App project showcases a well-thought-out combination of Firebase, 
 
 
 
+
+
 ## Testing
 
 The tests below collectively cover key aspects of the Mood Chat App, including authentication, Firestore data storage, mood filtering, and sentiment analysis. They help ensure the reliability and correctness of the application's functionality. Additionally, we leveraged **GitHub Actions** for continuous integration to automate the testing process and ensure code quality.
