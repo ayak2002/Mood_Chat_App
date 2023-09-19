@@ -29,11 +29,11 @@ function interpretSentimentScore(score) {
       return 'Very bad 😠';
     } else if (score >= -0.6 && score < -0.4) {
       return 'Bad 😤';
-    } else if (score >= -0.4 && score < -0.2) {
+    } else if (score >= -0.4 && score < -0.3) {
       return 'Not great 😒';
-    } else if (score >= -0.2 && score < 0.2) {
+    } else if (score >= -0.3 && score < 0.3) {
       return 'Neutral 😐';
-    } else if (score >= 0.2 && score < 0.4) {
+    } else if (score >= 0.3 && score < 0.4) {
       return 'Not bad 😊';
     } else if (score >= 0.4 && score < 0.6) {
       return 'Good 😀';

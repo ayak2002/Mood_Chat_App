@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@firebase/rules-unit-testing": "^3.0.1",
     "@google-cloud/language": "^6.1.0",
     "@testing-library/jest-dom": "^5.17.0",
     "@testing-library/react": "^13.4.0",
@@ -15,8 +16,10 @@
     "dotenv": "^16.3.1",
     "express": "^4.18.2",
     "firebase": "^10.3.1",
+    "firebase-admin": "^11.10.1",
     "https-browserify": "^1.0.0",
     "ibm-watson": "^8.0.0",
+    "jest-environment-jsdom": "^27.5.1",
     "os-browserify": "^0.3.0",
     "path-browserify": "^1.0.1",
     "querystring-es3": "^0.2.1",
@@ -26,14 +29,14 @@
     "react-scripts": "5.0.1",
     "stream-browserify": "^3.0.0",
     "stream-http": "^3.2.0",
+    "tsconfig-paths-jest": "^0.0.1",
     "web-vitals": "^2.1.4"
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject",
-    "preinstall": "npx npm-force-resolutions"
+    "test": "jest --env=jsdom",
+    "eject": "react-scripts eject"
   },
   "resolutions": {
     "react-error-overlay": "6.0.9"
@@ -57,6 +60,12 @@
     ]
   },
   "devDependencies": {
+    "@babel/plugin-syntax-jsx": "^7.22.5",
+    "@babel/plugin-transform-modules-commonjs": "^7.22.15",
+    "@babel/preset-env": "^7.22.20",
+    "@babel/preset-react": "^7.22.15",
+    "babel-core": "^7.0.0-bridge.0",
+    "firebase-mock": "^2.3.2",
     "node-polyfill-webpack-plugin": "^2.0.1",
     "react-error-overlay": "^6.0.9",
     "webpack-cli": "^5.1.4"

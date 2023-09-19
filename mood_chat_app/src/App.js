@@ -22,7 +22,8 @@ const App = () => {
       }
     });
 
-    return () => unsubscribe();
+    return unsubscribe;
+
   }, []);
 
   const handleSignIn = async () => {
