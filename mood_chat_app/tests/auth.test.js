@@ -1,4 +1,3 @@
-// auth.test.js
 const { authenticateUser, signOutUser } = require('./auth');
 
 describe('User Authentication', () => {
