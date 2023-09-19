@@ -27,5 +27,7 @@ jobs:
 
       - name: Run Tests
         run: |
-          cd mood_chat_app
+          cd node_server
+          node server.js
+          cd ../mood_chat_app
           npm test
