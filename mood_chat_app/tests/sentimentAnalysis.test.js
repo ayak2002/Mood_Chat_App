@@ -1,4 +1,3 @@
-// sentimentAnalysis.test.js
 const { analyzeText } = require('./sentimentAnalysis');
 
 describe('Sentiment Analysis', () => {
