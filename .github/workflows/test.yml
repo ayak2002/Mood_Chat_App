@@ -1,4 +1,4 @@
-name: Node.js CI
+name: CI
 
 on:
   push:
@@ -9,21 +9,23 @@ jobs:
   build:
     runs-on: ubuntu-latest
 
-    strategy:
-      matrix:
-        node-version: [18.x]
-
     steps:
-      - name: Checkout code
+      - name: Checkout Repository
         uses: actions/checkout@v2
 
       - name: Set up Node.js
         uses: actions/setup-node@v2
         with:
-          node-version: ${{ matrix.node-version }}
+          node-version: '18'
 
       - name: Install Dependencies
-        run: npm ci
+        run: |
+          cd mood_chat_app
+          npm install
+          cd ../node_server
+          npm install
 
       - name: Run Tests
-        run: npm test
+        run: |
+          cd mood_chat_app
+          npm test
