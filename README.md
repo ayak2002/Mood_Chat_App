@@ -168,3 +168,70 @@ The `App.js` component serves as the entry point to the application, handling us
 ---
 
 The Mood Chat App project showcases a well-thought-out combination of Firebase, Axios, and modular React components. Each module levels Firebase Firestore for real-time updates and user management. Firebase and Firestore were chosen due to their exceptional real-time capabilities, scalability, and offline support, all of which are vital for a chat application. Firebase's robust authentication system ensures secure user management, while Firestore's developer-friendly SDKs simplify frontend development. The serverless architecture eliminates server management concerns, and the integration of sentiment analysis seamlessly aligns with Firebase's scalability and real-time features. Furthermore, Firestore's fine-grained security rules provide essential data protection. Overall, Firebase and Firestore offer a powerful combination of features that cater to the specific needs of a real-time chat application, making them the preferred choice for this project. Also, the project's design decisions prioritize user experience, error handling, and code organization, resulting in an engaging and user-friendly chat application leading to a well rounded and robust chat app.
+
+
+
+## Testing
+
+The tests below collectively cover key aspects of the Mood Chat App, including authentication, Firestore data storage, mood filtering, and sentiment analysis. They help ensure the reliability and correctness of the application's functionality. Additionally, we leveraged **GitHub Actions** for continuous integration to automate the testing process and ensure code quality.
+
+### Environment Setup:
+
+The @jest-environment jsdom comment indicates that the tests are run in a JavaScript DOM environment, which is suitable for testing React components.
+
+### auth.test.js
+
+**Purpose:**
+
+The `auth.test.js` file contains tests related to user authentication in the Mood Chat App. It focuses on rendering the application and checking the presence of the sign-in button when the user is not authenticated.
+
+**Implementation Details:**
+
+- **Firebase Authentication Mocking:** The file effectively mocks the Firebase authentication module to simulate authentication-related functions. Mocking allows for controlled testing without actual authentication actions.
+
+- **App Rendering Test:** The first test verifies that the App component renders without errors. It uses the render function from the testing library to render the component and checks if the container is present in the document.
+
+- **Sign-In Button Test:** The second test ensures that the sign-in button is displayed when the user is not authenticated. It uses the render function to render the App component and checks for the presence of the "Please sign in to use the chat" text.
+
+- **Mocking User Interaction:** The file also mocks the AddUser function, which is called when a user signs in. The mocked implementation logs information about the function call, providing a way to monitor the execution of this critical function.
+
+### firebase.test.js
+
+**Purpose:**
+
+The `firebase.test.js` file contains tests related to Firestore data storage in the Mood Chat App. It focuses on saving data to Firestore and handling data validation.
+
+**Implementation Details:**
+
+- **Firebase Initialization:** The file initializes Firebase using the provided firebaseConfig and sets up a connection to Firestore. This setup ensures that Firestore operations can be tested.
+
+- **Data Saving Test:** The primary test in this file checks if data can be successfully saved to Firestore. It creates a sample data object, sets it in a Firestore document, retrieves the data, and asserts that the retrieved data matches the original.
+
+- **Invalid Data Test:** The second test verifies the system's ability to handle invalid data. It attempts to save data with an incorrect format and checks if the system throws an error.
+
+### MoodFilter.test.js
+
+**Purpose:**
+
+The `MoodFilter.test.js` file contains tests related to the mood filtering functionality in the Mood Chat App. It checks whether the MoodFilter component renders correctly and whether the filter change callback is triggered when a mood is selected.
+
+**Implementation Details:**
+
+- **Rendering Test:** The file's first test checks if the MoodFilter component renders correctly. It uses the testing library to render the component and verifies the presence of the "Filter by Mood:" label.
+
+- **Filter Change Test:** The second test ensures that selecting a mood triggers the filter change callback. It simulates a mood selection and checks if the callback function is called with the selected mood.
+
+### sentimentAnalysis.test.js
+
+**Purpose:** 
+
+The `sentimentAnalysis.test.js` file contains tests related to sentiment analysis of text messages in the Mood Chat App. It tests whether the sentiment analysis function correctly categorizes text messages into sentiment categories.
+
+**Implementation Details:** 
+
+- **Sentiment Mapping**: The file defines a mapping of different moods to sentiment categories. This mapping is used to categorize the results of sentiment analysis.
+
+- **Sentiment Analysis Tests:** The file dynamically generates tests based on the mood mapping. For each mood, it tests whether the analyzeText function categorizes a text message correctly.
+
+### Disclaimer
+While a substantial amount of independent work and effort went into the development and testing of this project on our end to demonstrate a well-rounded and self-driven approach, ChatGPT and online resources were a valuable source of help when working on this project.
