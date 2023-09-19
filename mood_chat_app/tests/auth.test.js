@@ -1,4 +1,4 @@
-const { authenticateUser, signOutUser } = require('./auth');
+const { authenticateUser, signOutUser } = require('../src/firebase/auth');
 
 describe('User Authentication', () => {
   it('should authenticate a user successfully', () => {

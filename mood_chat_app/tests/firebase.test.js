@@ -1,5 +1,5 @@
-const { addUserToFirestore, createChatRoom } = require('./firebase');
-const { db } = require('./firebase'); // Import the Firebase Firestore instance
+const { addUserToFirestore, createChatRoom } = require('../src/firebase');
+const { db } = require('../src/firebase'); // Import the Firebase Firestore instance
 
 describe('Firestore Database Operations', () => {
   it('should add a user to the Firestore database', async () => {

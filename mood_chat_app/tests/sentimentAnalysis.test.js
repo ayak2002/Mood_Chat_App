@@ -1,4 +1,4 @@
-const { analyzeText } = require('./sentimentAnalysis');
+const { analyzeText } = require('../src/component/TextAnalysis');
 
 describe('Sentiment Analysis', () => {
   it('should analyze text as positive', async () => {
