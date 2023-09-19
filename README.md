@@ -109,6 +109,46 @@ The `TextAnalysis.js` module provides a utility function, `analyzeText`, which i
 
 - **Modular Code:** By separating the text analysis functionality into a separate module, the codebase is kept clean and maintainable. This design decision adheres to best practices in code organization.
 
+### **TextAnalysis.js**
+
+#### **Implementation Techniques:**
+
+The `MoodFilter.js` component is responsible for enabling users to filter chat messages based on mood, providing an additional layer of interaction and organization within the Mood Chat App.
+
+- **Filtering Options:** The code dynamically generates a dropdown menu that lists various mood options, ranging from extremely negative to extremely positive, as well as an "Unknown" category. Users can select a mood from the dropdown to filter messages.
+  
+- **'onFilterChange' Prop:** The component utilizes a callback prop, onFilterChange, to notify the parent component (in this case, ChatBox.js) of the selected mood filter. This interaction ensures that the chat messages are dynamically filtered based on the user's selection.
+
+#### **Design Decisions:**
+
+- **User-Friendly Filtering:** The MoodFilter.js component enhances the user experience by providing an intuitive way to filter messages based on mood. This feature allows users to focus on specific types of content within the chat, improving readability and usability.
+
+- **All Moods Option:** The inclusion of an "All Moods" option in the dropdown ensures that users can easily revert to viewing all messages, providing flexibility and convenience.
+
+- **Real-Time Filtering:** The design of the mood filtering feature ensures that changes take effect in real time. When a user selects a mood, the chat messages are immediately updated to reflect the chosen filter, creating a responsive and interactive interface.
+
+### **server.js**
+
+#### **Implementation Techniques:**
+
+The `server.js` file represents the server-side code responsible for handling sentiment analysis requests from the Mood Chat App's frontend. It serves as a bridge between the frontend application and the sentiment analysis service.
+
+- **Express.js Server:** The code leverages the Express.js framework to create a lightweight and efficient server that listens for incoming HTTP requests.
+
+- **Sentiment Analysis Endpoint:** An HTTP POST endpoint is defined, typically accessible at a route like /analyze-text. This endpoint expects a JSON request containing the text to be analyzed.
+
+- **Sentiment Analysis Service Integration:** The server communicates with a sentiment analysis service, which performs the actual mood analysis of the text. It sends the text data to this service, awaits a response, and returns the result to the frontend.
+
+#### **Design Decisions:**
+
+- **Separation of Concerns:** The decision to create a dedicated server for sentiment analysis requests adheres to the principle of separation of concerns. It isolates this specific functionality from the main frontend application, promoting maintainability and scalability.
+
+- **HTTP POST Method:** The use of the HTTP POST method for sentiment analysis requests is a common and secure approach. It ensures that sensitive text data is transmitted securely to the server for analysis.
+
+- **Error Handling:** The server code incorporates error handling to address potential issues, such as communication errors with the sentiment analysis service or invalid requests. Robust error handling ensures that the server responds gracefully to unexpected situations.
+
+- **Modular Design:** The server code is designed to be modular and can be easily extended to support additional functionality or endpoints in the future.
+  
 ### **App.js**
 
 #### **Implementation Techniques:**
