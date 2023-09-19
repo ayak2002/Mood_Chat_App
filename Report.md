@@ -4,8 +4,8 @@ The Mood Chat App is a real-time chat application designed to facilitate communi
 ### To run the app ###
 
 1. Navigate to the `node_server` repository, and run `node server.js`.
-2. Navigate to the `mood_chat_app` repository, and run `npm start`
-3. In your browser, enter 'http://localhost:3000/'
+2. Navigate to the `mood_chat_app` repository, and run `npm start`.
+3. In your browser, enter 'http://localhost:3000/'.
    
 ### **AddUser.js**
 
