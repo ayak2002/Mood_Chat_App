@@ -109,7 +109,7 @@ The `TextAnalysis.js` module provides a utility function, `analyzeText`, which i
 
 - **Modular Code:** By separating the text analysis functionality into a separate module, the codebase is kept clean and maintainable. This design decision adheres to best practices in code organization.
 
-### **TextAnalysis.js**
+### **MoodFilter.js**
 
 #### **Implementation Techniques:**
 
