@@ -243,3 +243,6 @@ The `sentimentAnalysis.test.js` file contains tests related to sentiment analysi
 
 ### Disclaimer
 While a substantial amount of independent work and effort went into the development and testing of this project on our end to demonstrate a well-rounded and self-driven approach, ChatGPT and online resources were a valuable source of help when working on this project. Such resources were a great guide to understand the workflow of making an app such as the Mood Chat App and make all the appropriate choices to end up with a robust result.
+
+### Video Demo
+https://drive.google.com/file/d/1uUcBuRjz2N5oscLRS17DiKEEinPMLORc/view?usp=sharing
